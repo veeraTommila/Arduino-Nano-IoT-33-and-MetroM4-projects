@@ -11,6 +11,9 @@ This work is licensed under the terms of the MIT license. See the [MIT License](
 accelerometer (kiihtyvyysanturi), laser distance meter (laser-etäisyysanturi), digital sensors for temperature and touch (lämpötila- ja kosketusanturi), microphone (mikrofoni), 3 LED-lights (ledit), 3 pushbuttons (painonapit), an analog temperature sensor (analoginen lämpötila-anturi) and a sensor plate connection (sensorilevyliitäntä).
 
 Here are the projects made with Metro M4 and the sensor board:
-![Harjoitus3](https://github.com/veeraTommila/Arduino-Nano-IoT-33-and-MetroM4-projects/tree/main/METROM4BOOT/Harjoitukset/Harjoitus3)
-![Harjoitus4](https://github.com/veeraTommila/Arduino-Nano-IoT-33-and-MetroM4-projects/tree/main/METROM4BOOT/Harjoitukset/Harjoitus4)
-![Harjoitus6](https://github.com/veeraTommila/Arduino-Nano-IoT-33-and-MetroM4-projects/tree/main/METROM4BOOT/Harjoitukset/Harjoitus6)
+
+[Harjoitus3](https://github.com/veeraTommila/Arduino-Nano-IoT-33-and-MetroM4-projects/tree/main/METROM4BOOT/Harjoitukset/Harjoitus3)
+
+[Harjoitus4](https://github.com/veeraTommila/Arduino-Nano-IoT-33-and-MetroM4-projects/tree/main/METROM4BOOT/Harjoitukset/Harjoitus4)
+
+[Harjoitus6](https://github.com/veeraTommila/Arduino-Nano-IoT-33-and-MetroM4-projects/tree/main/METROM4BOOT/Harjoitukset/Harjoitus6)
