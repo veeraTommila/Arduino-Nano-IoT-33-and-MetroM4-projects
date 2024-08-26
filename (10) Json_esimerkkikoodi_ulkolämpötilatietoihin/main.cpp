@@ -12,73 +12,68 @@ int jsonTimeZone;
 const char* jsonKaupunki; 
 int status;
 
-char ssid[] = "ChydeniusOPEN";        // your network SSID (name)
-char pass[] = "";    // your network password (use for WPA, or use as key for WEP)
-int keyIndex = 0;            // your network key index number (needed only for WEP)
+char ssid[] = "ChydeniusOPEN";        // Your network SSID (name)
+char pass[] = "";    // Your network password (use for WPA, or use as key for WEP)
+int keyIndex = 0;            // Your network key index number (needed only for WEP)
 
-
-//Json datan serveri ja client
+// The server and the client of Json data.
 char jsonServer[] = "api.openweathermap.org";
 WiFiClient jsonClient;
 
-
 void setup() {
-  //Initialize serial and wait for port to open:
+  // Initialize serial and wait for port to open:
   Serial.begin(9600);
   while (!Serial) {
-    ; // wait for serial port to connect. Needed for native USB port only
+    ; // Wait for serial port to connect. Needed for native USB port only.
   }
 
-  // check for the WiFi module:
+  // Check for the WiFi module:
   if (WiFi.status() == WL_NO_MODULE) {
     Serial.println("Communication with WiFi module failed!");
-    // don't continue
+    // Don't continue
     while (true);
   }
 
-  // attempt to connect to WiFi network:
+  // Attempt to connect to WiFi network:
   while (status != WL_CONNECTED) {
     Serial.print("Attempting to connect to SSID: ");
     Serial.println(ssid);
     // Connect to WPA/WPA2 network. Change this line if using open or WEP network:
     status = WiFi.begin(ssid, pass);
 
-    // wait 10 seconds for connection:
+    // Wait 10 seconds for connection:
     delay(10000);
   }
-  // you're connected now, so print out the status:
+  // You're connected now, so print out the status:
   printWifiStatus();
-
 }
 
   void loop(){
     haeJson();
     delay(30000);
-
-
   }
 
   void printWifiStatus() {
-  // print the SSID of the network you're attached to:
+  // Print the SSID of the network you're attached to:
   Serial.print("SSID: ");
   Serial.println(WiFi.SSID());
 
-  // print your board's IP address:
+  // Print your board's IP address:
   IPAddress ip = WiFi.localIP();
   Serial.print("IP Address: ");
   Serial.println(ip);
 
-  // print the received signal strength:
+  // Print the received signal strength:
   long rssi = WiFi.RSSI();
   Serial.print("signal strength (RSSI):");
   Serial.print(rssi);
   Serial.println(" dBm");
 }
 
-//Aliohjelmassa haetaan Json tietue muuttujaan
+// In the subroutine haeJson, the Json record is retrieved into the variable.
 void haeJson(){
  Serial.println("\nStarting connection to JSONserver...");
-  // if you get a connection, report back via serial:
+  // If you get a connection, report back via serial:
   if (jsonClient.connect(jsonServer, 80)) {
     Serial.println("connected to server");
     
@@ -130,8 +125,6 @@ void haeJson(){
     Serial.println(jsonTimeZone);
     Serial.print("Kaupunki: ");
     Serial.println(jsonKaupunki);
-
-
 
     // Disconnect
     jsonClient.stop();
