@@ -1,0 +1,26 @@
+Sketch uses 3868 bytes (13%) of program storage space. Maximum is 28672 bytes.
+Global variables use 149 bytes of dynamic memory.
+Connecting to programmer: .avrdude: butterfly_recv(): programmer is not responding
+
+avrdude: butterfly_recv(): programmer is not responding
+avrdude: butterfly_recv(): programmer is not responding
+avrdude: butterfly_recv(): programmer is not responding
+avrdude: butterfly_recv(): programmer is not responding
+avrdude: butterfly_recv(): programmer is not responding
+Found programmer: Id = "�"; type = �
+    Software Version = i.
+
+#print("Hello World!")
+import board
+import digitalio
+import time
+
+led = digitalio.DigitalInOut(board.LED)
+led.direction = digitalio.Direction.OUTPUT
+
+while True:
+    print("Moi!")
+    led.value = True
+    time.sleep(1)
+    led.value = False
+    time.sleep(10)

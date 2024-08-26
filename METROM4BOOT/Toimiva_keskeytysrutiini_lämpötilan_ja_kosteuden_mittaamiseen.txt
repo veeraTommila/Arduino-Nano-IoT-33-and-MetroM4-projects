@@ -1,0 +1,38 @@
+// Veera Tommila. veera.tommila@gmail.com
+#include "Adafruit_SHTC3.h"
+
+const int PwrSht = 12;
+Adafruit_SHTC3 shtc3 = Adafruit_SHTC3();  //Oliomuuttuja  SHT:lle, jolla viitataan anturiin.
+
+int Button2 = 3;    // pushbutton connected to digital pin 3
+volatile byte state_Button2 = LOW;  //Pitäisi olla napin tilatietomuuttuja, joka on käynnistyksessä 0.
+
+void setup() {
+  pinMode(PwrSht, OUTPUT);
+  digitalWrite(PwrSht, HIGH);
+  Serial.begin(9600);
+
+  while (!Serial)
+    delay(10);     // will pause Zero, Leonardo, etc until serial console opens
+
+  Serial.println("SHTC3 test");
+  if (! shtc3.begin()) {  // Jos anturia ei löydy, jumitetaan tähän.
+    Serial.println("Ei löytynyt SHTC3-anturia.");
+    while (1) delay(1);
+  }
+  Serial.println("Löydettiin SHTC3-anturi"); // Jos käynnistys onnistuu. Ilmoitetaan anturin löytymisestä.    
+  pinMode(Button2, INPUT_PULLUP);    // sets the digital pin 3 as input
+  attachInterrupt(digitalPinToInterrupt(Button2), read_temperature, FALLING); //Keskeytysmääritys painonapille 2, joka IO-tulona aiheuttaa keskeytyksen. Kutsutaan ohjelmaa blink_yellow. Missä kohtaa keskeytys tapahtuu (falling, rising tai change).
+}
+
+void loop() {
+  digitalWrite(Button2, state_Button2);
+}
+
+void read_temperature(){
+  state_Button2 = !state_Button2;  
+  sensors_event_t humidity, temp;  
+  shtc3.getEvent(&humidity, &temp);// populate temp and humidity objects with fresh data. Käydään tällä komennolla lukemassa kosteus ja lämpötila.  
+  Serial.print("Lämpötila: "); Serial.print(temp.temperature); Serial.println(" °C.");  // Muutetaan lämpötila celcius-asteiksi.
+  Serial.print("Suhteellinen kosteus: "); Serial.print(humidity.relative_humidity); Serial.println("%."); // Mitataan suhteellinen kosteus.
+}
