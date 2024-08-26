@@ -22,4 +22,4 @@ This task focuses on Fibonacci's numbers. The first [Fibonacci.ino](https://gith
 
 [Harjoitus6](https://github.com/veeraTommila/Arduino-Nano-IoT-33-and-MetroM4-projects/tree/main/METROM4BOOT/Harjoitukset/Harjoitus6)
 
-This task focuses on the calculation of average values. The distance is measured with VL53LOX sensor. For each distance value to be printed, the average of ten previous values ​​is always calculated.
+This task focuses on the calculation of the average values of a distance. The distance is measured with VL53LOX sensor. For each distance value to be printed, the average of ten previous values ​​is always calculated.
