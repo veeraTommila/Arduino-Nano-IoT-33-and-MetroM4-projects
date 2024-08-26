@@ -1,3 +1,4 @@
+// This is a Json code example to retrieve the information of outside temperature.
 #include <Arduino.h>
 #include <ArduinoJson.h>
 #include <SPI.h>
