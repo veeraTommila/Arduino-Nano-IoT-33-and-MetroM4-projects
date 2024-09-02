@@ -29,17 +29,17 @@ void setup() {
   while (!Serial)
     delay(1);     // Will pause Zero, Leonardo, etc until serial console opens
 
-  Serial.println("SHTC3 testaus ja Adafruit VL53L0X testaus.");
+  Serial.println("SHTC3 testing and Adafruit VL53L0X testing.");
   if (! shtc3.begin()) {  // If the sensor is not found, let's get stuck here.
-    Serial.println("Ei löytynyt SHTC3-anturia.");
+    Serial.println("No SHTC3 sensor found.");
     while (1) delay(1);
   }
   if (!lox.begin()) {
-    Serial.println(F("Ei voitu käynnistää VL53L0X-anturia"));
+    Serial.println(F("Failed to initialize VL53L0X sensor."));
     while(1);
   }
   
-  Serial.println("Löydettiin SHTC3-anturi"); // If the start-up is successful, it is reported that the sensor has been found.    
+  Serial.println("Found SHTC3 sensor."); // If the start-up is successful, it is reported that the sensor has been found.    
   pinMode(Button2, INPUT_PULLUP);    // Sets the digital pin 3 as input
 // power 
   Serial.println(F("VL53L0X API Simple Ranging example\n\n")); 
